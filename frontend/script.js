@@ -1,4 +1,3 @@
-const API_KEY = 'AIzaSyASzKiNCvroZb4wSPg0NPMu6NVdnMGxNOw';
 
 async function getPlaylistData() {
   const url = document.getElementById('playlistUrl').value;
@@ -11,23 +10,23 @@ async function getPlaylistData() {
   let videoIds = [];
   let nextPageToken = '';
   do {
-    const response = await fetch(`https://www.googleapis.com/youtube/v3/playlistItems?part=contentDetails&maxResults=50&playlistId=${playlistId}&key=${API_KEY}&pageToken=${nextPageToken}`);
+    const response = await fetch(`http://localhost:3001/api/playlist?playlistId=${playlistId}&nextPageToken=${nextPageToken}`);
     const data = await response.json();
 
     if (data.error) {
-      alert("Error fetching playlist. Check API key or URL.");
+      alert("Error fetching playlist: " + data.error);
       return;
     }
 
     videoIds.push(...data.items.map(item => item.contentDetails.videoId));
-    nextPageToken = data.nextPageToken;
+    nextPageToken = data.nextPageToken || '';
   } while (nextPageToken);
 
   let durations = [];
 
   for (let i = 0; i < videoIds.length; i += 50) {
     const ids = videoIds.slice(i, i + 50).join(',');
-    const res = await fetch(`https://www.googleapis.com/youtube/v3/videos?part=contentDetails&id=${ids}&key=${API_KEY}`);
+    const res = await fetch(`http://localhost:3001/api/videos?videoIds=${ids}`);
     const json = await res.json();
 
     json.items.forEach(item => {
@@ -39,6 +38,8 @@ async function getPlaylistData() {
   const totalSeconds = durations.reduce((a, b) => a + b, 0);
   showResults(videoIds.length, totalSeconds);
 }
+
+// Rest of the functions remain the same...
 
 function getPlaylistId(url) {
   const match = url.match(/[?&]list=([a-zA-Z0-9_-]+)/);
