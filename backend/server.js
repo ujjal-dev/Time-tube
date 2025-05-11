@@ -7,6 +7,14 @@ const app = express();
 const PORT = 3001;
 
 app.use(cors());
+
+const path = require('path');
+// Serve frontend static files
+app.use(express.static(path.join(__dirname, '../frontend')));
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../frontend/index.html'));
+});
+
 app.use(express.json());
 
 // Proxy endpoint for playlist items
