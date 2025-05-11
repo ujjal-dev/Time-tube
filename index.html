@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>YouTube Playlist Duration Calculator</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 p-6 font-sans">
+  <div class="max-w-2xl mx-auto bg-white p-6 rounded-xl shadow-md">
+    <h1 class="text-2xl font-bold text-center mb-4">🎓 YouTube Playlist Study Time Calculator</h1>
+    
+    <input id="playlistUrl" type="text" placeholder="Paste YouTube playlist URL here" 
+           class="w-full p-2 border rounded mb-4 focus:outline-none focus:ring focus:border-blue-300">
+    <!-- Add below the playlist input -->
+    <input id="daysInput" type="number" min="1" placeholder="Enter number of days to complete" 
+    class="w-full p-2 border rounded mb-4 focus:outline-none focus:ring focus:border-green-300">
+
+
+    <button onclick="getPlaylistData()" 
+            class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 w-full mb-4">
+      Calculate Time
+    </button>
+
+    <div id="results" class="text-center text-gray-700 space-y-2">
+      <!-- Results will appear here -->
+    </div>
+    <div id="perDayResults" class="text-center text-green-700 space-y-2 mt-4">
+      <!-- Per-day results will appear here -->
+    </div>
+    
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
