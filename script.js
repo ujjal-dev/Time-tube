@@ -73,15 +73,19 @@ function showResults(videoCount, totalSeconds) {
   `;
 }
 function showResults(videoCount, totalSeconds) {
-  const normal = totalSeconds;
-  const speed15 = totalSeconds / 1.5;
-  const speed2 = totalSeconds / 2;
-
   const days = parseInt(document.getElementById("daysInput").value) || 0;
+  const extraHours = parseFloat(document.getElementById("hoursInput").value) || 0;
+  const extraSeconds = extraHours * 3600;
+
+  let remainingSeconds = Math.max(totalSeconds - extraSeconds, 0);
+
+  const normal = remainingSeconds;
+  const speed15 = remainingSeconds / 1.5;
+  const speed2 = remainingSeconds / 2;
 
   document.getElementById('results').innerHTML = `
     <p><strong>Total Videos:</strong> ${videoCount}</p>
-    <p><strong>Total Time (1x):</strong> ${formatDuration(normal)}</p>
+    <p><strong>Remaining Time (1x):</strong> ${formatDuration(normal)}</p>
     <p><strong>At 1.5x Speed:</strong> ${formatDuration(speed15)}</p>
     <p><strong>At 2x Speed:</strong> ${formatDuration(speed2)}</p>
   `;
@@ -97,4 +101,11 @@ function showResults(videoCount, totalSeconds) {
     document.getElementById("perDayResults").innerHTML = "";
   }
 }
-
+async function pasteFromClipboard() {
+  try {
+    const text = await navigator.clipboard.readText();
+    document.getElementById('playlistUrl').value = text;
+  } catch (err) {
+    alert('Clipboard access failed. Please allow permission or paste manually.');
+  }
+}

@@ -9,12 +9,28 @@
 <body class="bg-gray-100 p-6 font-sans">
   <div class="max-w-2xl mx-auto bg-white p-6 rounded-xl shadow-md">
     <h1 class="text-2xl font-bold text-center mb-4">🎓 YouTube Playlist Study Time Calculator</h1>
+    <label for="playlistUrl">Enter The Playlist Url :</label>
+    <div class="flex gap-2 mb-4">
+      <input id="playlistUrl" type="text" placeholder="Paste YouTube playlist URL here" 
+             class="w-full p-2 border rounded focus:outline-none focus:ring focus:border-blue-300">
+      <button onclick="pasteFromClipboard()" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
+        📋 Paste
+      </button>
+    </div>
     
-    <input id="playlistUrl" type="text" placeholder="Paste YouTube playlist URL here" 
-           class="w-full p-2 border rounded mb-4 focus:outline-none focus:ring focus:border-blue-300">
+           
     <!-- Add below the playlist input -->
+    <label for="daysInput">Enter Days to Complete :</label>
     <input id="daysInput" type="number" min="1" placeholder="Enter number of days to complete" 
     class="w-full p-2 border rounded mb-4 focus:outline-none focus:ring focus:border-green-300">
+    <div>
+      <label for="hoursInput">Hours you’ve already completed:</label>
+      <input type="number" id="hoursInput" placeholder="Hours you’ve already completed: if not left blank" step="0.1" min="0"
+      class="w-full p-2 border rounded mb-4 focus:outline-none focus:ring focus:border-blue-300">
+    </div>
+    
+   
+    
 
 
     <button onclick="getPlaylistData()" 
