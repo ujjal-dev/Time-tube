@@ -1,0 +1,82 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+.container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f272a9;
+background: radial-gradient(circle, rgba(242, 114, 169, 1) 0%, rgba(148, 187, 233, 1) 100%); 
+
+}
+.card{
+    width: 500px;
+    height: 100vh;
+    display: flex;
+    border: 2px solid black;
+    
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+    
+    border-radius: 20px;
+    background: #072aed;
+background: linear-gradient(90deg, rgba(7, 42, 237, 1) 0%, rgba(70, 24, 196, 1) 50%, rgba(131, 20, 227, 1) 100%);
+    
+}
+h1,h2{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: white;
+    
+}
+input{
+    height: 40px;
+    width: 75%;
+    border:1px solid black;
+    border-radius: 10px;
+}
+.input,.input2{
+    display: flex;
+    flex-direction: column;
+    color: white;
+    gap: 1rem;
+    align-items: center;
+    
+}
+.input .paste{
+    height: 30px;
+    width: 70px;
+    border: 2px solid black;
+    border-radius: 5px;
+    background-color: rgb(21, 21, 131);
+    color: beige;
+    
+}
+
+.submit2{
+    height: 40px;
+    width: 100px;
+    border: px solid black;
+    border-radius: 5px;
+    background-color: rgba(14, 119, 231, 0.748);
+    color: white;
+    
+}
+.footer{
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    
+    
+}
+.result1,.result2{
+    color: white;
+}
+
+
+

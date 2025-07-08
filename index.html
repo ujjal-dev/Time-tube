@@ -4,30 +4,84 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>YouTube Playlist Duration Calculator</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-gray-100 p-6 font-sans">
-  <div class="max-w-2xl mx-auto bg-white p-6 rounded-xl shadow-md">
-    <h1 class="text-2xl font-bold text-center mb-4">🎓 YouTube Playlist Study Time Calculator</h1>
-    <label for="playlistUrl">Enter The Playlist Url :</label>
-    <div class="flex gap-2 mb-4">
-      <input id="playlistUrl" type="text" placeholder="Paste YouTube playlist URL here" 
-             class="w-full p-2 border rounded focus:outline-none focus:ring focus:border-blue-300">
-      <button onclick="pasteFromClipboard()" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
-        📋 Paste
-      </button>
-    </div>
+<body >
+  <div class="container">
+    <div class="card">
+      <h1>🎓 Study Time Calculator <br>
+           YouTube Playlist </h1>
+      <div class="input">
+
+         <label for="playlistUrl">Enter The Playlist Url :</label>
     
-           
-    <!-- Add below the playlist input -->
-    <label for="daysInput">Enter Days to Complete :</label>
-    <input id="daysInput" type="number" min="1" placeholder="Enter number of days to complete" 
-    class="w-full p-2 border rounded mb-4 focus:outline-none focus:ring focus:border-green-300">
-    <div>
+        <input id="playlistUrl" type="text" placeholder="Paste YouTube playlist URL here" 
+             class=>
+        <button onclick="pasteFromClipboard()" class="paste">
+        📋 Paste
+        </button>
+      </div>
+      <div class="input2">
+        <label for="daysInput">Enter Days to Complete :</label>
+      <input id="daysInput" type="number" min="1" placeholder="Enter number of days to complete">
+    
       <label for="hoursInput">Hours you’ve already completed:</label>
       <input type="number" id="hoursInput" placeholder="Hours you’ve already completed: if not left blank" step="0.1" min="0"
-      class="w-full p-2 border rounded mb-4 focus:outline-none focus:ring focus:border-blue-300">
+      class="">
+      </div>
+      <div class="submit">
+        <button onclick="getPlaylistData()" 
+            class="submit2">
+          Calculate Time
+         </button>
+      </div>
+      <div id="results" class="result1">
+        <!-- Results will appear here -->
+      </div>
+      <div id="perDayResults" class="result2">
+        <!-- Per-day results will appear here -->
+    
+      <footer class="footer">
+        Crafted with <span class="text-red-500">❤️</span> by <strong>Ujjal</strong>
+      </footer>
+      
+      
     </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+  <!--<div class="container">
+    <div class="card">
+      <h1 >🎓 YouTube Playlist Study Time Calculator</h1>
+    <label for="playlistUrl">Enter The Playlist Url :</label>
+    
+      <input id="playlistUrl" type="text" placeholder="Paste YouTube playlist URL here" 
+             class=>
+      <button onclick="pasteFromClipboard()" class="">
+        📋 Paste
+      </button>
+    
+    
+           
+    <!-- Add below the playlist input 
+    <label for="daysInput">Enter Days to Complete :</label>
+    <input id="daysInput" type="number" min="1" placeholder="Enter number of days to complete" 
+    class="">
+    
+      <label for="hoursInput">Hours you’ve already completed:</label>
+      <input type="number" id="hoursInput" placeholder="Hours you’ve already completed: if not left blank" step="0.1" min="0"
+      class="">
+    
     
    
     
@@ -39,18 +93,16 @@
     </button>
 
     <div id="results" class="text-center text-gray-700 space-y-2">
-      <!-- Results will appear here -->
+      <!-- Results will appear here 
     </div>
     <div id="perDayResults" class="text-center text-green-700 space-y-2 mt-4">
-      <!-- Per-day results will appear here -->
-    </div>
+      Per-day results will appear here -->
+  
+    
     
   </div>
 
   <script src="script.js"></script>
-  <footer class="text-center text-gray-600 text-sm mt-12 mb-4">
-    Crafted with <span class="text-red-500">❤️</span> by <strong>Ujjal</strong>
-  </footer>
   
 </body>
 </html>
